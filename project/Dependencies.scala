@@ -10,20 +10,20 @@ object Dependencies {
   lazy val sangria       = "org.sangria-graphql"              %% "sangria"         % "4.2.18"
   lazy val sangriaCirce  = "org.sangria-graphql"              %% "sangria-circe"   % "1.3.2"
   lazy val pekkoHttp      = "org.apache.pekko"                 %% "pekko-http"       % "1.3.0"
-  lazy val pekkoStream    = "org.apache.pekko"                 %% "pekko-stream"     % "1.4.0"
-  lazy val pekkoHttpCirce = "com.github.pjfanning"             %% "pekko-http-circe" % "3.7.0"
+  lazy val pekkoStream    = "org.apache.pekko"                 %% "pekko-stream"     % "1.6.0"
+  lazy val pekkoHttpCirce = "com.github.pjfanning"             %% "pekko-http-circe" % "3.9.1"
   lazy val circeCore     = "io.circe"                         %% "circe-core"      % "0.14.15"
   lazy val circeParser   = "io.circe"                         %% "circe-parser"    % "0.14.15"
-  lazy val circeOptics   = "io.circe"                         %% "circe-optics"    % "0.15.0"
+  lazy val circeOptics   = "io.circe"                         %% "circe-optics"    % "0.15.1"
 
-  lazy val hiveJdbc = ("org.apache.hive" % "hive-jdbc" % "3.1.3000.7.2.12.2-5").exclude("org.slf4j", "slf4j-log4j12")
+  lazy val hiveJdbc = ("org.apache.hive" % "hive-jdbc" % "4.2.0").exclude("org.slf4j", "slf4j-log4j12")
     .exclude("org.apache.logging.log4j", "log4j-slf4j-impl").exclude("org.apache.logging.log4j", "log4j-1.2-api")
     .exclude("log4j", "log4j")
 
   lazy val loggingDependencies = Seq(
-    "org.apache.logging.log4j" % "log4j-api"       % "2.24.3",
-    "org.apache.logging.log4j" % "log4j-web"       % "2.24.3",
-    "org.apache.logging.log4j" % "log4j-core"      % "2.24.3",
+    "org.apache.logging.log4j" % "log4j-api"       % "2.26.0",
+    "org.apache.logging.log4j" % "log4j-web"       % "2.26.0",
+    "org.apache.logging.log4j" % "log4j-core"      % "2.26.0",
     "ch.qos.logback"           % "logback-classic" % "1.5.32",
     "org.slf4j"                % "slf4j-api"       % "2.0.18"
   )
