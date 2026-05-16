@@ -16,7 +16,7 @@ object Dependencies {
   lazy val circeParser   = "io.circe"                         %% "circe-parser"    % "0.14.15"
   lazy val circeOptics   = "io.circe"                         %% "circe-optics"    % "0.15.1"
 
-  lazy val hiveJdbc = ("org.apache.hive" % "hive-jdbc" % "4.2.0").exclude("org.slf4j", "slf4j-log4j12")
+  lazy val hiveJdbc = ("org.apache.hive" % "hive-jdbc" % "3.1.3000.7.2.12.2-5").exclude("org.slf4j", "slf4j-log4j12")
     .exclude("org.apache.logging.log4j", "log4j-slf4j-impl").exclude("org.apache.logging.log4j", "log4j-1.2-api")
     .exclude("log4j", "log4j")
 
