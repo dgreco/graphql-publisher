@@ -30,8 +30,8 @@ import org.apache.pekko.http.scaladsl.server.{Directive0, Route}
 import com.github.mustachejava.DefaultMustacheFactory
 
 import scala.collection.mutable
-import scala.collection.mutable._
-import scala.jdk.CollectionConverters._
+import scala.collection.mutable.*
+import scala.jdk.CollectionConverters.*
 
 @SuppressWarnings(
   Array(

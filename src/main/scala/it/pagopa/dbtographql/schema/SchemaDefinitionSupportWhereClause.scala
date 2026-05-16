@@ -22,8 +22,6 @@ import it.pagopa.dbtographql.database.DatabaseMetadataModel.TableMetadata
 import sangria.schema.InputObjectType.DefaultInput
 import sangria.schema.{BigDecimalType, BigIntType, BooleanType, FloatType, InputField, InputObjectType, IntType, ListInputType, LongType, OptionInputType, ScalarType, StringType}
 
-import scala.reflect.runtime.universe.TypeTag
-
 @SuppressWarnings(
   Array(
     "org.wartremover.warts.Any",
@@ -33,12 +31,12 @@ import scala.reflect.runtime.universe.TypeTag
   )
 )
 trait SchemaDefinitionSupportWhereClause extends SchemaDefinitionSupportCommons with DatabaseMetadataMgmt {
-  protected def getComparisonExp[T](tpe: ScalarType[T])(implicit tag: TypeTag[T]): InputObjectType[DefaultInput] = {
+  protected def getComparisonExp[T](tpe: ScalarType[T]): InputObjectType[DefaultInput] = {
 
-    val typeName = tag.tpe.erasure.typeSymbol.name.toString
+    val typeName = tpe.name
 
     val isTime = typeName === "Timestamp" || typeName === "Date"
-    val isNumeric = tag.tpe.erasure.typeSymbol.asClass.isNumeric || typeName === "BigInt" || typeName === "BigDecimal" || typeName === "Boolean" || typeName === "Timestamp" || typeName === "Date"
+    val isNumeric = typeName === "Float" || typeName === "Double" || typeName === "Int" || typeName === "Long" || typeName === "BigInt" || typeName === "BigDecimal" || typeName === "Boolean" || typeName === "Timestamp" || typeName === "Date"
 
     val operators =
       if (isNumeric)

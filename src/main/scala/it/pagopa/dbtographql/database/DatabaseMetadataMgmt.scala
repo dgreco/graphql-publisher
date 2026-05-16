@@ -18,7 +18,7 @@ package it.pagopa.dbtographql.database
 
 import cats.data.Validated.{Invalid, Valid}
 import cats.data.ValidatedNel
-import cats.implicits.{catsSyntaxEq, _}
+import cats.implicits.*
 import it.pagopa.dbtographql.database.DatabaseMetadataModel.{
   ColumnMetadata,
   DatabaseMetadata,

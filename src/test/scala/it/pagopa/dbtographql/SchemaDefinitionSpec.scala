@@ -25,8 +25,8 @@ import org.scalatest.BeforeAndAfterAll
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 import sangria.execution.Executor
-import sangria.macros.LiteralGraphQLStringContext
-import sangria.marshalling.circe._
+import sangria.macros.graphql
+import sangria.marshalling.circe.*
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration

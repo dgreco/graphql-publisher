@@ -16,10 +16,10 @@
 
 package it.pagopa.dbtographql
 
-import org.apache.pekko.http.scaladsl.model.HttpMethods._
-import org.apache.pekko.http.scaladsl.model.headers._
+import org.apache.pekko.http.scaladsl.model.HttpMethods.*
+import org.apache.pekko.http.scaladsl.model.headers.*
 import org.apache.pekko.http.scaladsl.model.{HttpResponse, StatusCodes}
-import org.apache.pekko.http.scaladsl.server.Directives._
+import org.apache.pekko.http.scaladsl.server.Directives.*
 import org.apache.pekko.http.scaladsl.server.{Directive0, Route}
 
 trait CorsSupport {

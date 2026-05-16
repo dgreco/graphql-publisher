@@ -30,13 +30,13 @@ trait SchemaDefinitionSupport extends SchemaDefinitionSupportCommons with Databa
 
   protected sealed trait AggregationOperation
 
-  protected final case object Avg extends AggregationOperation
+  protected case object Avg extends AggregationOperation
 
-  protected final case object Max extends AggregationOperation
+  protected case object Max extends AggregationOperation
 
-  protected final case object Min extends AggregationOperation
+  protected case object Min extends AggregationOperation
 
-  protected final case object Count extends AggregationOperation
+  protected case object Count extends AggregationOperation
 
   protected def tableSelectColumn(table: TableMetadata): EnumType[String] = EnumType(s"${table.tableName}_select_column", Some(s"""select columns of table "${table.tableName}""""), table.columns.map(c => EnumValue(c.columnName, Some("column name"), c.columnName)))
 
@@ -105,7 +105,10 @@ trait SchemaDefinitionSupport extends SchemaDefinitionSupportCommons with Databa
           Field[Ctx, Any, Any, Any](
             name = "count",
             fieldType = LongType,
-            arguments = Argument("columns", tableSelectColumn(table), "") :: Argument("distinct", OptionInputType(BooleanType), "") :: Nil: List[Argument[_]],
+            arguments = List(
+              Argument("columns", tableSelectColumn(table), ""),
+              Argument("distinct", OptionInputType(BooleanType), "")
+            ),
             resolve = (ctx: Context[Ctx, Any]) => {
               val columName = ctx.args.arg[String]("columns")
               val columnNameWithDistinct = s"distinct $columName"

@@ -19,10 +19,10 @@ package it.pagopa.dbtographql
 import java.nio.charset.Charset
 
 import org.apache.pekko.http.scaladsl.marshalling.{Marshaller, ToEntityMarshaller}
-import org.apache.pekko.http.scaladsl.model._
+import org.apache.pekko.http.scaladsl.model.*
 import org.apache.pekko.http.scaladsl.model.headers.Accept
-import org.apache.pekko.http.scaladsl.server.Directives._
-import org.apache.pekko.http.scaladsl.server._
+import org.apache.pekko.http.scaladsl.server.Directives.*
+import org.apache.pekko.http.scaladsl.server.*
 import org.apache.pekko.http.scaladsl.unmarshalling.{FromEntityUnmarshaller, Unmarshaller}
 import org.apache.pekko.util.ByteString
 import sangria.ast.Document

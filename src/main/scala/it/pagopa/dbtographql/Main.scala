@@ -21,15 +21,15 @@ import java.time.temporal.TemporalAmount
 import org.apache.pekko.actor.ActorSystem
 import org.apache.pekko.http.scaladsl.Http
 import org.apache.pekko.http.scaladsl.model.HttpEntity
-import org.apache.pekko.http.scaladsl.model.StatusCodes._
-import org.apache.pekko.http.scaladsl.server.Directives._
+import org.apache.pekko.http.scaladsl.model.StatusCodes.*
+import org.apache.pekko.http.scaladsl.server.Directives.*
 import org.apache.pekko.http.scaladsl.server.directives.MethodDirectives.get
 import org.apache.pekko.http.scaladsl.server.directives.RouteDirectives.complete
 import org.apache.pekko.http.scaladsl.server.{Route, StandardRoute}
-import com.github.pjfanning.pekkohttpcirce.ErrorAccumulatingCirceSupport._
-import io.circe._
-import io.circe.optics.JsonPath._
-import io.circe.parser._
+import com.github.pjfanning.pekkohttpcirce.ErrorAccumulatingCirceSupport.*
+import io.circe.*
+import io.circe.optics.JsonPath.*
+import io.circe.parser.*
 import it.pagopa.dbtographql.common.ApplicationConfiguration
 import it.pagopa.dbtographql.database.{DatabaseDataMgmt, DatabaseMetadataMgmt}
 import it.pagopa.dbtographql.http.TemplatedFileAndResourceDirectives
@@ -38,7 +38,7 @@ import it.pagopa.dbtographql.sessionmanagement.SessionManagement
 import org.slf4j.LoggerFactory
 import sangria.ast.Document
 import sangria.execution.Executor
-import sangria.marshalling.circe._
+import sangria.marshalling.circe.*
 import sangria.parser.{QueryParser, SyntaxError}
 
 import scala.collection.mutable
@@ -55,7 +55,14 @@ import scala.util.{Failure, Success}
     "org.wartremover.warts.MutableDataStructures"
   )
 )
-object Main extends App with SessionManagement with DatabaseMetadataMgmt with DatabaseDataMgmt with SchemaDefinition with SchemaLoginDefinition with TemplatedFileAndResourceDirectives with CorsSupport {
+object Main
+  extends SessionManagement
+    with DatabaseMetadataMgmt
+    with DatabaseDataMgmt
+    with SchemaDefinition
+    with SchemaLoginDefinition
+    with TemplatedFileAndResourceDirectives
+    with CorsSupport {
 
   override def getConnectionUri: String = ApplicationConfiguration.jdbcUrl
 
@@ -66,8 +73,6 @@ object Main extends App with SessionManagement with DatabaseMetadataMgmt with Da
   override def getTokenLifetime: TemporalAmount = ApplicationConfiguration.tokenLifetime
 
   private val logger = LoggerFactory.getLogger(Main.getClass)
-
-  logger.info("Starting Main ...")
 
   implicit private val system: ActorSystem = ActorSystem("server")
 
@@ -157,8 +162,12 @@ object Main extends App with SessionManagement with DatabaseMetadataMgmt with Da
         }
       }
 
-  private val bindingFuture = Http().newServerAt("0.0.0.0", 8088).bind(corsHandler(route))
-  locally {
+  val bindingFuture = Http().newServerAt("0.0.0.0", 8088).bind(corsHandler(route))
+
+  def start(): Unit = {
+    logger.info("Starting Main ...")
     val _ = Await.result(bindingFuture, Duration.Inf)
   }
 }
+
+@main def run(): Unit = Main.start()

@@ -20,7 +20,7 @@ import cats.implicits.catsSyntaxEq
 import it.pagopa.dbtographql.database.DatabaseMetadataMgmt
 import it.pagopa.dbtographql.database.DatabaseMetadataModel.TableMetadata
 import org.slf4j.LoggerFactory
-import sangria.ast._
+import sangria.ast.*
 import sangria.renderer.QueryRenderer
 import sangria.schema.InputObjectType.DefaultInput
 import sangria.schema.{Context, InputObjectType, ObjectType}

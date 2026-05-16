@@ -1,6 +1,6 @@
 import Dependencies._
 
-ThisBuild / scalaVersion := "2.13.18"
+ThisBuild / scalaVersion := "3.3.7"
 ThisBuild / organization := "it.pagopa"
 ThisBuild / organizationName := "Pagopa S.p.A."
 ThisBuild / wartremoverWarnings ++= Warts.all
@@ -22,16 +22,12 @@ scalacOptions ++= Seq(
   "-encoding",
   "UTF-8",
   "-explaintypes",
-  "-Yrangepos",
   "-feature",
-  "-language:higherKinds",
-  "-language:existentials",
   "-unchecked",
   "-Xlint:_,-type-parameter-shadow",
   // "-Xfatal-warnings",
-  "-Ywarn-numeric-widen",
-  "-Ywarn-unused:patvars,-implicits",
-  "-Ywarn-value-discard"
+  "-Wvalue-discard",
+  "-Wunused:params"
 )
 
 javacOptions ++= Seq(
