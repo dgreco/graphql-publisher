@@ -18,15 +18,15 @@ package it.pagopa.dbtographql.http
 
 import java.io.StringWriter
 
-import akka.http.scaladsl.model.headers.EntityTag
-import akka.http.scaladsl.model.{ContentType, DateTime, HttpEntity}
-import akka.http.scaladsl.server.directives.BasicDirectives.{extractSettings, pass}
-import akka.http.scaladsl.server.directives.CacheConditionDirectives.conditional
-import akka.http.scaladsl.server.directives.FileAndResourceDirectives.ResourceFile
-import akka.http.scaladsl.server.directives.MethodDirectives.get
-import akka.http.scaladsl.server.directives.RouteDirectives.{complete, reject}
-import akka.http.scaladsl.server.directives.{CodingDirectives, ContentTypeResolver, FileAndResourceDirectives, RangeDirectives}
-import akka.http.scaladsl.server.{Directive0, Route}
+import org.apache.pekko.http.scaladsl.model.headers.EntityTag
+import org.apache.pekko.http.scaladsl.model.{ContentType, DateTime, HttpEntity}
+import org.apache.pekko.http.scaladsl.server.directives.BasicDirectives.{extractSettings, pass}
+import org.apache.pekko.http.scaladsl.server.directives.CacheConditionDirectives.conditional
+import org.apache.pekko.http.scaladsl.server.directives.FileAndResourceDirectives.ResourceFile
+import org.apache.pekko.http.scaladsl.server.directives.MethodDirectives.get
+import org.apache.pekko.http.scaladsl.server.directives.RouteDirectives.{complete, reject}
+import org.apache.pekko.http.scaladsl.server.directives.{CodingDirectives, ContentTypeResolver, FileAndResourceDirectives, RangeDirectives}
+import org.apache.pekko.http.scaladsl.server.{Directive0, Route}
 import com.github.mustachejava.DefaultMustacheFactory
 
 import scala.collection.mutable
