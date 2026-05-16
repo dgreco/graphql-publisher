@@ -62,14 +62,15 @@ class SchemaDefinitionSpec extends AnyWordSpec with Matchers with BeforeAndAfter
       val connection = DriverManager.getConnection(DATABASE_URL)
       val stm = connection.createStatement
       val _ = stm.execute(
-        """create schema `test`;
+        """drop schema if exists `test` cascade;
+          |create schema `test`;
         """.stripMargin
       )
       val _ = stm.execute(
         """
           |create table test.test_numeric(
-          |   DECIMAL_TYPE     DECIMAL,
-          |   NUMERIC_TYPE     NUMERIC,
+          |   DECIMAL_TYPE     DECIMAL(10, 2),
+          |   NUMERIC_TYPE     NUMERIC(10, 2),
           |   DOUBLE_TYPE      DOUBLE,
           |   REAL_TYPE        REAL,
           |   FLOAT_TYPE       FLOAT,
@@ -209,7 +210,8 @@ class SchemaDefinitionSpec extends AnyWordSpec with Matchers with BeforeAndAfter
       val connection = DriverManager.getConnection(DATABASE_URL)
       val stm = connection.createStatement
       val _ = stm.execute(
-        """create schema `test`;
+        """drop schema if exists `test` cascade;
+          |create schema `test`;
         """.stripMargin
       )
       val _ = stm.execute(
@@ -245,7 +247,8 @@ class SchemaDefinitionSpec extends AnyWordSpec with Matchers with BeforeAndAfter
       val connection = DriverManager.getConnection(DATABASE_URL)
       val stm = connection.createStatement
       val _ = stm.execute(
-        """create schema `test`;
+        """drop schema if exists `test` cascade;
+          |create schema `test`;
         """.stripMargin
       )
       val _ = stm.execute(
@@ -280,7 +283,8 @@ class SchemaDefinitionSpec extends AnyWordSpec with Matchers with BeforeAndAfter
       val connection = DriverManager.getConnection(DATABASE_URL)
       val stm = connection.createStatement
       val _ = stm.execute(
-        """create schema `test`;
+        """drop schema if exists `test` cascade;
+          |create schema `test`;
         """.stripMargin
       )
       val _ = stm.execute(

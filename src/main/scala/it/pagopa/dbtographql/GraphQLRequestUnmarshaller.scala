@@ -66,8 +66,9 @@ object GraphQLRequestUnmarshaller {
       .map {
         case ByteString.empty => throw Unmarshaller.NoContentException
         case data =>
-          import sangria.parser.DeliveryScheme.Throw
-
-          QueryParser.parse(data.decodeString(Charset.forName("UTF-8")))
+          QueryParser.parse(data.decodeString(Charset.forName("UTF-8"))) match {
+            case scala.util.Success(ast) => ast
+            case scala.util.Failure(ex)  => throw ex
+          }
       }
 }

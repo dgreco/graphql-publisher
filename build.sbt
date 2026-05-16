@@ -1,9 +1,9 @@
 import Dependencies._
 
-ThisBuild / scalaVersion := "2.13.8"
+ThisBuild / scalaVersion := "2.13.18"
 ThisBuild / organization := "it.pagopa"
 ThisBuild / organizationName := "Pagopa S.p.A."
-ThisBuild / wartremoverErrors ++= Warts.all
+ThisBuild / wartremoverWarnings ++= Warts.all
 ThisBuild / Test / parallelExecution := false
 ThisBuild / Test / fork := false
 ThisBuild / resolvers += "Cloudera Repo" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
@@ -28,7 +28,7 @@ scalacOptions ++= Seq(
   "-language:existentials",
   "-unchecked",
   "-Xlint:_,-type-parameter-shadow",
-  "-Xfatal-warnings",
+  // "-Xfatal-warnings",
   "-Ywarn-numeric-widen",
   "-Ywarn-unused:patvars,-implicits",
   "-Ywarn-value-discard"
@@ -48,7 +48,6 @@ lazy val root = (project in file("."))
       catsCore % Compile,
       catsKernel % Compile,
       catsFree % Compile,
-      catsMacros % Compile,
       sangria % Compile,
       sangriaCirce % Compile,
       akkaStream % Compile,

@@ -39,7 +39,6 @@ import org.slf4j.LoggerFactory
 import sangria.ast.Document
 import sangria.execution.Executor
 import sangria.marshalling.circe._
-import sangria.parser.DeliveryScheme.Try
 import sangria.parser.{QueryParser, SyntaxError}
 
 import scala.collection.mutable

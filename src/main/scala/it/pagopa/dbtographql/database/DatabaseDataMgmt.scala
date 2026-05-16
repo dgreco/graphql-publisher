@@ -33,10 +33,11 @@ trait DatabaseDataMgmt {
     (columnType: @switch) match {
       case Types.BOOLEAN => resultSet.getBoolean(index)
       case Types.DECIMAL => scala.math.BigDecimal(resultSet.getBigDecimal(index))
+      case Types.NUMERIC => scala.math.BigDecimal(resultSet.getBigDecimal(index))
       case Types.VARCHAR => resultSet.getString(index)
       case Types.DOUBLE => resultSet.getDouble(index)
       case Types.REAL => resultSet.getDouble(index)
-      case Types.FLOAT => resultSet.getFloat(index)
+      case Types.FLOAT => resultSet.getFloat(index).toDouble
       case Types.SMALLINT => resultSet.getShort(index).toInt
       case Types.TINYINT => resultSet.getByte(index).toInt
       case Types.INTEGER => resultSet.getInt(index)
